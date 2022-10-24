@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto3</title>
+    <style type="text/css">
+        body {
+            background-color: cadetblue;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            font-size: 20px;
+            text-align: center;
+            margin: 100px;
+            color: indigo;
+            text-transform: uppercase;
+        }
+
+        #btnCambiar {
+            border: 5px solid black;
+            border-radius: 10px;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: black;
+            transition-duration: 0.4s;
+        }
+
+        #btnCambiar:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <h1>Background Color: <span id="colorTxt"></span></h1>
+            <button id="btnCambiar">click me</button>
+        </div>
+    </section>
+    <script type="text/javascript">
+        const btnColor = document.getElementById('btnCambiar');
+        const body = document.querySelector('body');
+        const color = ['cadetblue', 'red', 'blue', 'orange', 'green', 'yellow', 'white', 'gray', 'aqua', 'salmon', 'lightpink', 'lavender', 'silver'];
+        const valor = document.getElementById('colorTxt');
+
+        body.style.backgroundColor = '';
+        valor.innerHTML = 'cadetblue';
+        btnColor.addEventListener('click', function () {
+            let newColor = '';
+            const randColor = Math.floor(Math.random() * color.length);
+            newColor = color[randColor];
+            valor.innerHTML = newColor;
+            body.style.backgroundColor = newColor;
+            body.style.transition = '1s';
+        })
+    </script>
+</body>
+
+</html>
